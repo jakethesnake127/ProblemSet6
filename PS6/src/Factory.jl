@@ -13,13 +13,13 @@ function _build_stoichiometric_matrix(data::Dict{String,Any})::Array{Float64,2}
     
     # TODO: fill in the entries of the stochiometric matrix 
     for i ∈ 1:number_of_metabolites
-        metabolite_id = list_of_metabolites[i]["id"];
+        metabolite_id = list_of_metabolites[i]["id"]
         for j ∈ 1:number_of_reactions
-           reaction_meta = list_of_reactions[j]["metabolites"];
-           if(haskey(reaction_meta, metabolite_id)) == true;
-                S[i,j] = reaction_meta[metabolite_id];
+           reaction_meta = list_of_reactions[j]["metabolites"]
+           if(haskey(reaction_meta, metabolite_id)) == true
+                S[i,j] = reaction_meta[metabolite_id]
            else
-                S[i,j] = 0.0;
+                S[i,j] = 0.0
            end
         end
     end
